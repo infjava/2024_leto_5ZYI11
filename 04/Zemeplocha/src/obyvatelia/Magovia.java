@@ -16,7 +16,7 @@ public class Magovia extends Tvory {
 
     @Override
     public ArrayList<Akcia> dajAkcieNa(Policko mojePolicko, Policko druhePolicko) {
-        var akcie = new ArrayList<Akcia>();
+        var akcie = super.dajAkcieNa(mojePolicko, druhePolicko);
 
         var obyvatelia = druhePolicko.getObyvatelia();
         if (obyvatelia.isPresent() && obyvatelia.get().getTypObyvatela() != TypObyvatela.MAGOVIA) {
@@ -24,5 +24,10 @@ public class Magovia extends Tvory {
         }
 
         return akcie;
+    }
+
+    @Override
+    public Tvory vytvorTvory(int pocetTvorov) {
+        return new Magovia(pocetTvorov, this.koeficientMagie);
     }
 }
