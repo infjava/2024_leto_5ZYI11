@@ -31,11 +31,6 @@ public class Navleky implements Predmet {
         return !this.suObute;
     }
 
-    @Override
-    public void hracSaPohol(Hrac hrac) {
-
-    }
-
     public boolean jeNasadeny() {
         return this.suObute;
     }

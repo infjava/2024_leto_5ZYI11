@@ -22,9 +22,4 @@ public class Hodinky implements Predmet {
     public boolean mozemPolozit() {
         return true;
     }
-
-    @Override
-    public void hracSaPohol(Hrac hrac) {
-
-    }
 }
