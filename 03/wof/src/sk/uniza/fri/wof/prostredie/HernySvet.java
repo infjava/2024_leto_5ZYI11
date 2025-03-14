@@ -28,6 +28,7 @@ public class HernySvet {
         terasa.polozPredmet(new Navleky());
         terasa.polozPredmet(new Baterky());
         terasa.polozPredmet(new Radio());
+        terasa.vlozVybavenie(new Automat());
         labak.polozPredmet(new ObycajnyPredmet("mys"));
         bufet.polozPredmet(new ObycajnyPredmet("bageta"));
 
