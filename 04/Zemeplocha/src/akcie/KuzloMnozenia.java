@@ -7,7 +7,7 @@ public class KuzloMnozenia implements Akcia {
     private final Policko druhePolicko;
     private final int koeficientMagie;
 
-    public KuzloMnozenia(Policko mojePolicko, Policko druhePolicko, int koeficientMagie) {
+    public KuzloMnozenia(Policko druhePolicko, int koeficientMagie) {
         this.druhePolicko = druhePolicko;
         this.koeficientMagie = koeficientMagie;
     }

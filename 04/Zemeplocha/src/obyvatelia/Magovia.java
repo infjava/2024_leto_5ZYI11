@@ -5,7 +5,6 @@ import akcie.KuzloMnozenia;
 import hlavnyBalik.Policko;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class Magovia extends Tvory {
     private final int koeficientMagie;
@@ -21,7 +20,7 @@ public class Magovia extends Tvory {
 
         var obyvatelia = druhePolicko.getObyvatelia();
         if (obyvatelia.isPresent() && obyvatelia.get().getTypObyvatela() != TypObyvatela.MAGOVIA) {
-            akcie.add(new KuzloMnozenia(mojePolicko, druhePolicko, this.koeficientMagie));
+            akcie.add(new KuzloMnozenia(druhePolicko, this.koeficientMagie));
         }
 
         return akcie;
