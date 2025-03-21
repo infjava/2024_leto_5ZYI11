@@ -29,6 +29,8 @@ public class Zemeplocha {
                     this.policka[i][j].setObyvatelia(new Magovia(5, 5));
                 } else if ((cislo % 23) == 0) {
                     this.policka[i][j].setObyvatelia(new Lovci(50));
+                } else if ((cislo % 13) == 0) {
+                    this.policka[i][j].setObyvatelia(new Rytieri(25));
                 } else if ((cislo % 2) == 0) { //vela zveri
                     this.policka[i][j].setObyvatelia(new Zver(25, TypObyvatela.SRNKY));
                 } else {
