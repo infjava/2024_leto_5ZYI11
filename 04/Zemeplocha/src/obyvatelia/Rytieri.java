@@ -27,4 +27,18 @@ public class Rytieri extends Tvory {
     public Tvory vytvorTvory(int pocetTvorov) {
         return new Rytieri(pocetTvorov);
     }
+
+    public void zautoc(Policko mojePolicko, Policko druhePolicko, int pocetUtocnikov) {
+        var cieloviObyvatelia = druhePolicko.getObyvatelia().orElseThrow();
+
+        cieloviObyvatelia.upravPopulaciu(-pocetUtocnikov);
+        this.upravPopulaciu(-pocetUtocnikov);
+
+        if (cieloviObyvatelia.getPopulacia() <= 0) {
+            druhePolicko.zruseniObyvatelia();
+        }
+        if (this.getPopulacia() <= 0) {
+            mojePolicko.zruseniObyvatelia();
+        }
+    }
 }

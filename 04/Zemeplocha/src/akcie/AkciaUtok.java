@@ -1,6 +1,7 @@
 package akcie;
 
 import hlavnyBalik.Policko;
+import obyvatelia.Rytieri;
 import zemeplocha.Zemeplocha;
 
 import javax.swing.*;
@@ -23,7 +24,7 @@ public class AkciaUtok implements Akcia {
     public void vykonaj(Zemeplocha zemeplocha) {
         var pocetUtocnikov = Integer.parseInt( JOptionPane.showInputDialog( null,
                 "Zadaj pocet utocnikov.") );
-        var ja = this.mojePolicko.getObyvatelia().orElseThrow();
+        var ja = (Rytieri) this.mojePolicko.getObyvatelia().orElseThrow();
         if (pocetUtocnikov > ja.getPopulacia()) {
             JOptionPane.showMessageDialog( null, "Nemas dost utocnikov.");
         } else {
@@ -33,15 +34,7 @@ public class AkciaUtok implements Akcia {
                 pocetUtocnikov = cieloviObyvatelia.getPopulacia();
             }
 
-            cieloviObyvatelia.upravPopulaciu(-pocetUtocnikov);
-            ja.upravPopulaciu(-pocetUtocnikov);
-
-            if (cieloviObyvatelia.getPopulacia() <= 0) {
-                this.druhePolicko.zruseniObyvatelia();
-            }
-            if (ja.getPopulacia() <= 0) {
-                this.mojePolicko.zruseniObyvatelia();
-            }
+            ja.zautoc(this.mojePolicko, this.druhePolicko, pocetUtocnikov);
         }
     }
 }
