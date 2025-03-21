@@ -6,7 +6,7 @@ import hlavnyBalik.Policko;
 
 import java.util.ArrayList;
 
-public class Rytieri extends Tvory {
+public class Rytieri extends Ludia {
     public Rytieri(int populacia) {
         super(populacia, TypObyvatela.RYTIERI);
     }
@@ -16,7 +16,7 @@ public class Rytieri extends Tvory {
         ArrayList<Akcia> akcie = super.dajAkcieNa(mojePolicko, druhePolicko);
 
         var obyvatelia = druhePolicko.getObyvatelia();
-        if (obyvatelia.isPresent() && !(obyvatelia.get() instanceof Zver) && obyvatelia.get() != this) {
+        if (obyvatelia.isPresent() && obyvatelia.get() instanceof Ludia && obyvatelia.get() != this) {
             akcie.add(new AkciaUtok(mojePolicko, druhePolicko));
         }
 
