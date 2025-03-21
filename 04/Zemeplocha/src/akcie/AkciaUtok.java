@@ -1,6 +1,7 @@
 package akcie;
 
 import hlavnyBalik.Policko;
+import obyvatelia.Ludia;
 import obyvatelia.Rytieri;
 import zemeplocha.Zemeplocha;
 
@@ -24,7 +25,7 @@ public class AkciaUtok implements Akcia {
     public void vykonaj(Zemeplocha zemeplocha) {
         var pocetUtocnikov = Integer.parseInt( JOptionPane.showInputDialog( null,
                 "Zadaj pocet utocnikov.") );
-        var ja = (Rytieri) this.mojePolicko.getObyvatelia().orElseThrow();
+        var ja = (Ludia) this.mojePolicko.getObyvatelia().orElseThrow();
         if (pocetUtocnikov > ja.getPopulacia()) {
             JOptionPane.showMessageDialog( null, "Nemas dost utocnikov.");
         } else {
