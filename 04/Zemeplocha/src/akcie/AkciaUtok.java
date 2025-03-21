@@ -29,6 +29,10 @@ public class AkciaUtok implements Akcia {
         } else {
             var cieloviObyvatelia = this.druhePolicko.getObyvatelia().orElseThrow();
 
+            if (pocetUtocnikov > cieloviObyvatelia.getPopulacia()) {
+                pocetUtocnikov = cieloviObyvatelia.getPopulacia();
+            }
+
             cieloviObyvatelia.upravPopulaciu(-pocetUtocnikov);
             ja.upravPopulaciu(-pocetUtocnikov);
 
