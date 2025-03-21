@@ -27,6 +27,11 @@ public class Magovia extends Ludia {
     }
 
     @Override
+    protected void prijmiUtok(int pocetUtocnikov) {
+
+    }
+
+    @Override
     public Tvory vytvorTvory(int pocetTvorov) {
         return new Magovia(pocetTvorov, this.koeficientMagie);
     }
