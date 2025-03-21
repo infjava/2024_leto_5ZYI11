@@ -27,7 +27,12 @@ public class Magovia extends Ludia {
     }
 
     @Override
-    protected void prijmiUtok(int pocetUtocnikov) {
+    protected int vypocitajSiluUtoku(int pocetUtocnikov) {
+        return 1000000;
+    }
+
+    @Override
+    protected void prijmiUtok(int silaUtoku) {
 
     }
 

@@ -26,8 +26,8 @@ public abstract class Ludia extends Tvory {
     public void zautoc(Policko mojePolicko, Policko druhePolicko, int pocetUtocnikov) {
         var cieloviObyvatelia = (Ludia)druhePolicko.getObyvatelia().orElseThrow();
 
-        cieloviObyvatelia.prijmiUtok(pocetUtocnikov);
-        this.prijmiUtok(pocetUtocnikov);
+        cieloviObyvatelia.prijmiUtok(this.vypocitajSiluUtoku(pocetUtocnikov));
+        this.prijmiUtok(cieloviObyvatelia.vypocitajSiluUtoku(pocetUtocnikov));
 
         if (cieloviObyvatelia.getPopulacia() <= 0) {
             druhePolicko.zruseniObyvatelia();
@@ -37,5 +37,7 @@ public abstract class Ludia extends Tvory {
         }
     }
 
-    protected abstract void prijmiUtok(int pocetUtocnikov);
+    protected abstract int vypocitajSiluUtoku(int pocetUtocnikov);
+
+    protected abstract void prijmiUtok(int silaUtoku);
 }

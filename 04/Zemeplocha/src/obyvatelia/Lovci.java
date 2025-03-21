@@ -24,8 +24,13 @@ public class Lovci extends Ludia {
     }
 
     @Override
-    protected void prijmiUtok(int pocetUtocnikov) {
-        this.upravPopulaciu(-pocetUtocnikov * 2);
+    protected int vypocitajSiluUtoku(int pocetUtocnikov) {
+        return pocetUtocnikov / 2;
+    }
+
+    @Override
+    protected void prijmiUtok(int silaUtoku) {
+        this.upravPopulaciu(-silaUtoku * 2);
     }
 
     @Override
