@@ -62,7 +62,7 @@ public class KonzoloveMenu {
                         if (poleMatic[0] == null || poleMatic[1] == null) {
                             System.out.println("Chyba ti nejaka matica, ta ne?");
                         } else {
-                            poleMatic[2] = poleMatic[0].vydelMaticePoPrvkoch(poleMatic[1]);
+                            poleMatic[2] = poleMatic[0].vykonajOperaciuPoPrvkoch(poleMatic[1], new Delenie());
                             System.out.println("Vysledok delenia po prvkoch ulozeny do matice C");
                         }
                     } catch (ZleRozmeryMaticException e) {
@@ -74,7 +74,7 @@ public class KonzoloveMenu {
                         if (poleMatic[0] == null || poleMatic[1] == null) {
                             System.out.println("Chyba ti nejaka matica, ta ne?");
                         } else {
-                            poleMatic[2] = poleMatic[0].pricitajMaticu(poleMatic[1]);
+                            poleMatic[2] = poleMatic[0].vykonajOperaciuPoPrvkoch(poleMatic[1], new Scitanie());
                             System.out.println("Vysledok scitania po prvkoch ulozeny do matice C");
                         }
                     } catch (ZleRozmeryMaticException e) {
