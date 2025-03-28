@@ -68,7 +68,6 @@ public class Matica {
 
             return new Matica(result);
         } else {
-            System.out.println("Matice maju nespravne rozmery");
             return null;
         }
     }
