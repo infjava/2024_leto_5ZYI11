@@ -47,12 +47,14 @@ public class KonzoloveMenu {
                     break;
                 case 3:
                     try {
-                        poleMatic[2] = poleMatic[0].vynasobMaticou(poleMatic[1]);
-                        System.out.println("Vysledok nasobenia ulozeny do matice C");
+                        if (poleMatic[0] == null || poleMatic[1] == null) {
+                            System.out.println("Chyba ti nejaka matica, ta ne?");
+                        } else {
+                            poleMatic[2] = poleMatic[0].vynasobMaticou(poleMatic[1]);
+                            System.out.println("Vysledok nasobenia ulozeny do matice C");
+                        }
                     } catch (ZleRozmeryMaticException e) {
                         System.out.println("Matice maju nespravne rozmery");
-                    } catch (NullPointerException e) {
-                        System.out.println("Chyba ti nejaka matica, ta ne?");
                     }
                     break;
                 case 4:

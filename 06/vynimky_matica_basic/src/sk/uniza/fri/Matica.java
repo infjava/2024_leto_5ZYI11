@@ -1,6 +1,7 @@
 package sk.uniza.fri;
 
 
+import java.security.InvalidParameterException;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
@@ -57,6 +58,10 @@ public class Matica {
     }
     // operacia jednej s druhou
     public Matica vynasobMaticou(Matica mat2) throws ZleRozmeryMaticException {
+        if (mat2 == null) {
+            throw new InvalidParameterException("mat2 nemoze byt null");
+        }
+
         if (this.pocetStlpcov == mat2.getPocetRiadkov()) {
             double[][] result = new double[this.pocetRiadkov][mat2.pocetStlpcov];
             for (int i = 0; i < this.pocetRiadkov; i++) {
