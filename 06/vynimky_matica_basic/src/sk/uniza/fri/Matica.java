@@ -55,7 +55,7 @@ public class Matica {
         return new Matica(vysledok);
     }
     // operacia jednej s druhou
-    public Matica vynasobMaticou(Matica mat2) {
+    public Matica vynasobMaticou(Matica mat2) throws ZleRozmeryMaticException {
         if (this.pocetStlpcov == mat2.getPocetRiadkov()) {
             double[][] result = new double[this.pocetRiadkov][mat2.pocetStlpcov];
             for (int i = 0; i < this.pocetRiadkov; i++) {
@@ -68,7 +68,7 @@ public class Matica {
 
             return new Matica(result);
         } else {
-            return null;
+            throw new ZleRozmeryMaticException();
         }
     }
 
