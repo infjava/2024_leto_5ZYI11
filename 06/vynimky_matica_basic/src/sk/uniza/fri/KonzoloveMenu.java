@@ -67,6 +67,8 @@ public class KonzoloveMenu {
                         }
                     } catch (ZleRozmeryMaticException e) {
                         System.out.println("Matice maju nespravne rozmery");
+                    } catch (ArithmeticException e) {
+                        System.out.println("Chyba pri deleni, pravdepodobne delenie nulou");
                     }
                     break;
                 case 5:
