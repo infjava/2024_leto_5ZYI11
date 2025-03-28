@@ -23,7 +23,7 @@ public class KonzoloveMenu {
             System.out.println("2 - Vypis matice");
             System.out.println("3 - Nasobenie matic, C = A x B.");
             System.out.println("4 - Delenie matic po prvkoch, C[i][j] = A[i][j] / B[i][j], pre vsetky i,j v matici.");
-            System.out.println("5 - Nahradzanie hodnot");
+            System.out.println("5 - Scitanie matic");
             System.out.println("0 - Ukoncenie programu");
             System.out.println("----------------------------------------");
             while(!sc.hasNextInt()) {
@@ -70,7 +70,16 @@ public class KonzoloveMenu {
                     }
                     break;
                 case 5:
-                    System.out.println("Toto si zial este neimplementoval");
+                    try {
+                        if (poleMatic[0] == null || poleMatic[1] == null) {
+                            System.out.println("Chyba ti nejaka matica, ta ne?");
+                        } else {
+                            poleMatic[2] = poleMatic[0].pricitajMaticu(poleMatic[1]);
+                            System.out.println("Vysledok scitania po prvkoch ulozeny do matice C");
+                        }
+                    } catch (ZleRozmeryMaticException e) {
+                        System.out.println("Matice maju nespravne rozmery");
+                    }
                     break;
                 case 0:
                     System.out.println("Ukonci program");
