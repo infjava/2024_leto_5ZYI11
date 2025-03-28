@@ -56,16 +56,21 @@ public class Matica {
     }
     // operacia jednej s druhou
     public Matica vynasobMaticou(Matica mat2) {
-        double[][] result = new double[ this.pocetRiadkov][mat2.pocetStlpcov];
-        for (int i = 0; i <  this.pocetRiadkov; i++) {
-            for (int j = 0; j < mat2.pocetStlpcov; j++) {
-                for (int k = 0; k < mat2.pocetRiadkov; k++) {
-                    result[i][j] +=  this.polePrvkov[i][k] * mat2.dajPrvok(k, j);
+        if (this.pocetStlpcov == mat2.getPocetRiadkov()) {
+            double[][] result = new double[this.pocetRiadkov][mat2.pocetStlpcov];
+            for (int i = 0; i < this.pocetRiadkov; i++) {
+                for (int j = 0; j < mat2.pocetStlpcov; j++) {
+                    for (int k = 0; k < mat2.pocetRiadkov; k++) {
+                        result[i][j] += this.polePrvkov[i][k] * mat2.dajPrvok(k, j);
+                    }
                 }
             }
-        }
 
-        return new Matica(result);
+            return new Matica(result);
+        } else {
+            System.out.println("Matice maju nespravne rozmery");
+            return null;
+        }
     }
 
     //  metoda sa vypise aj inak
