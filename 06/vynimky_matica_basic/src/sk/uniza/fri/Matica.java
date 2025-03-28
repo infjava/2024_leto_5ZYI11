@@ -52,17 +52,17 @@ public class Matica {
             throw new InvalidParameterException("mat2 nemoze byt null");
         }
 
-        if (this.pocetStlpcov == mat2.getPocetStlpcov() && this.pocetRiadkov == mat2.getPocetRiadkov()) {
-            double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];
-            for (int i = 0; i < vysledok.length; i++) {
-                for (int j = 0; j < vysledok[0].length; j++) {
-                    vysledok[i][j] = this.dajPrvok(i, j) / mat2.dajPrvok(i, j);
-                }
-            }
-            return new Matica(vysledok);
-        } else {
+        if (this.pocetStlpcov != mat2.getPocetStlpcov() || this.pocetRiadkov != mat2.getPocetRiadkov()) {
             throw new ZleRozmeryMaticException();
         }
+
+        double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];
+        for (int i = 0; i < vysledok.length; i++) {
+            for (int j = 0; j < vysledok[0].length; j++) {
+                vysledok[i][j] = this.dajPrvok(i, j) / mat2.dajPrvok(i, j);
+            }
+        }
+        return new Matica(vysledok);
     }
     // operacia jednej s druhou
     public Matica vynasobMaticou(Matica mat2) throws ZleRozmeryMaticException {
@@ -70,20 +70,20 @@ public class Matica {
             throw new InvalidParameterException("mat2 nemoze byt null");
         }
 
-        if (this.pocetStlpcov == mat2.getPocetRiadkov()) {
-            double[][] result = new double[this.pocetRiadkov][mat2.pocetStlpcov];
-            for (int i = 0; i < this.pocetRiadkov; i++) {
-                for (int j = 0; j < mat2.pocetStlpcov; j++) {
-                    for (int k = 0; k < mat2.pocetRiadkov; k++) {
-                        result[i][j] += this.polePrvkov[i][k] * mat2.dajPrvok(k, j);
-                    }
-                }
-            }
-
-            return new Matica(result);
-        } else {
+        if (this.pocetStlpcov != mat2.getPocetRiadkov()) {
             throw new ZleRozmeryMaticException();
         }
+
+        double[][] result = new double[this.pocetRiadkov][mat2.pocetStlpcov];
+        for (int i = 0; i < this.pocetRiadkov; i++) {
+            for (int j = 0; j < mat2.pocetStlpcov; j++) {
+                for (int k = 0; k < mat2.pocetRiadkov; k++) {
+                    result[i][j] += this.polePrvkov[i][k] * mat2.dajPrvok(k, j);
+                }
+            }
+        }
+
+        return new Matica(result);
     }
 
     //  metoda sa vypise aj inak
