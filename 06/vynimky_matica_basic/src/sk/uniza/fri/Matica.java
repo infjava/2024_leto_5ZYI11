@@ -16,8 +16,9 @@ public class Matica {
 
     public Matica(double[][] polePrvkov) {
         this.polePrvkov = polePrvkov;
-        this.pocetRiadkov = this.polePrvkov.length;
-        this.pocetStlpcov = this.polePrvkov[0].length;
+        //this.polePrvkov = null;
+        this.pocetRiadkov = polePrvkov.length;
+        this.pocetStlpcov = polePrvkov[0].length;
     }
 
     // naplni maticu nahodnymi prvkami

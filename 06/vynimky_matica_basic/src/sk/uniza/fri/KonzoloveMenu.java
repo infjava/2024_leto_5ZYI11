@@ -51,6 +51,8 @@ public class KonzoloveMenu {
                         System.out.println("Vysledok nasobenia ulozeny do matice C");
                     } catch (ZleRozmeryMaticException e) {
                         System.out.println("Matice maju nespravne rozmery");
+                    } catch (NullPointerException e) {
+                        System.out.println("Chyba ti nejaka matica, ta ne?");
                     }
                     break;
                 case 4:
