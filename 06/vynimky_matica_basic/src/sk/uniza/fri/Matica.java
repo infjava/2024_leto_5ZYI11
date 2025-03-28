@@ -47,14 +47,22 @@ public class Matica {
         return this.polePrvkov[i][j];
     }
 
-    public Matica vydelMaticePoPrvkoch(Matica mat2) {
-        double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];
-        for (int i = 0; i < vysledok.length; i++) {
-            for (int j = 0; j < vysledok[0].length; j++) {
-                vysledok[i][j] = this.dajPrvok(i, j) / mat2.dajPrvok(i, j);
-            }
+    public Matica vydelMaticePoPrvkoch(Matica mat2) throws ZleRozmeryMaticException {
+        if (mat2 == null) {
+            throw new InvalidParameterException("mat2 nemoze byt null");
         }
-        return new Matica(vysledok);
+
+        if (this.pocetStlpcov == mat2.getPocetStlpcov() && this.pocetRiadkov == mat2.getPocetRiadkov()) {
+            double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];
+            for (int i = 0; i < vysledok.length; i++) {
+                for (int j = 0; j < vysledok[0].length; j++) {
+                    vysledok[i][j] = this.dajPrvok(i, j) / mat2.dajPrvok(i, j);
+                }
+            }
+            return new Matica(vysledok);
+        } else {
+            throw new ZleRozmeryMaticException();
+        }
     }
     // operacia jednej s druhou
     public Matica vynasobMaticou(Matica mat2) throws ZleRozmeryMaticException {

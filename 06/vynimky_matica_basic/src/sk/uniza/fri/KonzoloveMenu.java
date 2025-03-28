@@ -58,8 +58,16 @@ public class KonzoloveMenu {
                     }
                     break;
                 case 4:
-                    poleMatic[2] = poleMatic[0].vydelMaticePoPrvkoch(poleMatic[1]);
-                    System.out.println("Vysledok delenia po prvkoch ulozeny do matice C");
+                    try {
+                        if (poleMatic[0] == null || poleMatic[1] == null) {
+                            System.out.println("Chyba ti nejaka matica, ta ne?");
+                        } else {
+                            poleMatic[2] = poleMatic[0].vydelMaticePoPrvkoch(poleMatic[1]);
+                            System.out.println("Vysledok delenia po prvkoch ulozeny do matice C");
+                        }
+                    } catch (ZleRozmeryMaticException e) {
+                        System.out.println("Matice maju nespravne rozmery");
+                    }
                     break;
                 case 5:
                     System.out.println("Toto si zial este neimplementoval");
