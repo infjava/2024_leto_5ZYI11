@@ -9,4 +9,9 @@ public class Macka extends Zviera implements Nazvany {
     public String getMeno() {
         return this.meno;
     }
+
+    @Override
+    public void zozer(Jedlo jedlo) {
+        System.out.println("Macka si spokojne pradie po dobrom obede");
+    }
 }

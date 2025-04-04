@@ -9,4 +9,9 @@ public class Lev extends Zviera implements Nazvany {
     public String getMeno() {
         return this.meno;
     }
+
+    @Override
+    public void zozer(Jedlo jedlo) {
+        System.out.println("Lev zozral jedlo");
+    }
 }

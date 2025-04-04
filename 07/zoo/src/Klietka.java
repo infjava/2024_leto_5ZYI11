@@ -18,4 +18,8 @@ public class Klietka<E extends Zviera> {
             System.out.println("V klietke je zviera");
         }
     }
+
+    public void vlozPotravu(Jedlo jedlo) {
+        this.zviera.zozer(jedlo);
+    }
 }
