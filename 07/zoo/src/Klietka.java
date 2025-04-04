@@ -1,11 +1,11 @@
 public class Klietka {
-    private Object zviera;
+    private Zviera zviera;
 
     public Klietka() {
         this.zviera = null;
     }
 
-    public void vlozZviera(Object zviera) {
+    public void vlozZviera(Zviera zviera) {
         this.zviera = zviera;
     }
 

@@ -11,8 +11,8 @@ public class Main {
         klietkaNaMys.vypis();
 
         // klietka na cele cisla
-        var divnaKlietka = new Klietka();
-        divnaKlietka.vlozZviera(5);
-        divnaKlietka.vypis();
+//        var divnaKlietka = new Klietka();
+//        divnaKlietka.vlozZviera(5);
+//        divnaKlietka.vypis();
     }
 }

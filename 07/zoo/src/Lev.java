@@ -1,4 +1,4 @@
-public class Lev {
+public class Lev extends Zviera {
     private final String meno;
 
     public Lev(String meno) {
