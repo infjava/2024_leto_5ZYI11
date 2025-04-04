@@ -12,10 +12,8 @@ public class Klietka<E extends Zviera> {
     public void vypis() {
         if (this.zviera == null) {
             System.out.println("Klietka je prazdna");
-        } else if (this.zviera instanceof Lev lev) {
-            System.out.format("V klietke je %s%n", lev.getMeno());
-        } else if (this.zviera instanceof Macka macka) {
-            System.out.format("V klietke je %s%n", macka.getMeno());
+        } else if (this.zviera instanceof Nazvany nazvaneZviera) {
+            System.out.format("V klietke je %s%n", nazvaneZviera.getMeno());
         } else {
             System.out.println("V klietke je zviera");
         }
