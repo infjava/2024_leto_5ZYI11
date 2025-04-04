@@ -30,21 +30,21 @@ public class Main {
 //        divnaKlietka.vlozZviera(5);
 //        divnaKlietka.vypis();
 
-//        for (var macka : klietkaNaMacku) {
-//            System.out.format("Macka %s%n", macka.getMeno());
-//        }
+        for (var macka : klietkaNaMacku) {
+            System.out.format("Macka %s%n", macka.getMeno());
+        }
 
-        var cisla = new ArrayList<Integer>();
-
+//        var cisla = new ArrayList<Integer>();
+//
 //        for (Integer i : cisla) {
 //            System.out.println(i);
 //        }
-
-        var iterator = cisla.iterator();
-        while (iterator.hasNext()) {
-            var i = iterator.next();
-
-            System.out.println(i);
-        }
+//
+//        var iterator = cisla.iterator();
+//        while (iterator.hasNext()) {
+//            var i = iterator.next();
+//
+//            System.out.println(i);
+//        }
     }
 }

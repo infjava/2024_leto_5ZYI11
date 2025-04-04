@@ -1,4 +1,6 @@
-public class Klietka<E extends Zviera> {
+import java.util.Iterator;
+
+public class Klietka<E extends Zviera> implements Iterable<E> {
     private E zviera;
 
     public Klietka() {
@@ -21,5 +23,10 @@ public class Klietka<E extends Zviera> {
 
     public void vlozPotravu(Jedlo<E> jedlo) {
         this.zviera.zozer(jedlo);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new KlietkaIterator(this.zviera);
     }
 }
