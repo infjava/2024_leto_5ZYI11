@@ -1,3 +1,3 @@
 public abstract class Zviera {
-    public abstract void zozer(Jedlo jedlo);
+    public abstract void zozer(Jedlo<?> jedlo);
 }

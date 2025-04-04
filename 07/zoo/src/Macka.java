@@ -11,7 +11,7 @@ public class Macka extends Zviera implements Nazvany {
     }
 
     @Override
-    public void zozer(Jedlo jedlo) {
+    public void zozer(Jedlo<?> jedlo) {
         if (!(jedlo instanceof Mlieko)) {
             throw new ToNelubimException();
         }

@@ -7,6 +7,8 @@ public class Main {
         klietkaNaLeva.vlozPotravu(new Maso());
         klietkaNaLeva.vypis();
 
+//        new Lev("Alex").zozer(new Syr());
+
         // klietka na mysi
         var klietkaNaMys = new Klietka<Mys>();
         klietkaNaMys.vlozZviera(new Mys());

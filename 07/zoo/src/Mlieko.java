@@ -1,2 +1,2 @@
-public class Mlieko extends Jedlo {
+public class Mlieko extends Jedlo<Macka> {
 }

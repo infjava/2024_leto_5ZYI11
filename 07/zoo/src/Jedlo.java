@@ -1,2 +1,6 @@
-public abstract class Jedlo {
+/**
+ *
+ * @param <T> typ zvierata, pre ktore je jedlo urcene
+ */
+public abstract class Jedlo<T> {
 }
