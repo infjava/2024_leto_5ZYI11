@@ -3,6 +3,7 @@ public class Main {
         // klietka na levy
         var klietkaNaLeva = new Klietka<Lev>();
         klietkaNaLeva.vlozZviera(new Lev("Simba"));
+//        klietkaNaLeva.vlozPotravu(new Syr());
         klietkaNaLeva.vlozPotravu(new Maso());
         klietkaNaLeva.vypis();
 

@@ -12,6 +12,10 @@ public class Lev extends Zviera implements Nazvany {
 
     @Override
     public void zozer(Jedlo jedlo) {
+        if (!(jedlo instanceof Maso)) {
+            throw new ToNelubimException();
+        }
+
         System.out.println("Lev zozral jedlo");
     }
 }

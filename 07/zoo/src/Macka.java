@@ -12,6 +12,10 @@ public class Macka extends Zviera implements Nazvany {
 
     @Override
     public void zozer(Jedlo jedlo) {
+        if (!(jedlo instanceof Mlieko)) {
+            throw new ToNelubimException();
+        }
+
         System.out.println("Macka si spokojne pradie po dobrom obede");
     }
 }
