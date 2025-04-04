@@ -12,6 +12,10 @@ public class Main {
 //        klietkaNaMys.vlozZviera(new Lev("Mysozer"));
         klietkaNaMys.vypis();
 
+        var klietkaNaMacku = new Klietka<Macka>();
+        klietkaNaMacku.vlozZviera(new Macka("Tom"));
+        klietkaNaMacku.vypis();
+
         // klietka na cele cisla
 //        var divnaKlietka = new Klietka<Integer>();
 //        divnaKlietka.vlozZviera(5);
