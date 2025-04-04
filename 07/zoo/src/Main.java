@@ -13,7 +13,7 @@ public class Main {
         klietkaNaMys.vypis();
 
         // klietka na cele cisla
-//        var divnaKlietka = new Klietka();
+//        var divnaKlietka = new Klietka<Integer>();
 //        divnaKlietka.vlozZviera(5);
 //        divnaKlietka.vypis();
     }
