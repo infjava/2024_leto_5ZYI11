@@ -1,4 +1,4 @@
-public class Lev extends Zviera implements Nazvany {
+public class Lev extends Zviera<Lev> implements Nazvany {
     private final String meno;
 
     public Lev(String meno) {
@@ -11,11 +11,7 @@ public class Lev extends Zviera implements Nazvany {
     }
 
     @Override
-    public void zozer(Jedlo<?> jedlo) {
-        if (!(jedlo instanceof Maso)) {
-            throw new ToNelubimException();
-        }
-
+    public void zozer(Jedlo<Lev> jedlo) {
         System.out.println("Lev zozral jedlo");
     }
 }

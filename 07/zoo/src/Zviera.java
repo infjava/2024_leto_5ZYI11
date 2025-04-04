@@ -1,3 +1,6 @@
-public abstract class Zviera {
-    public abstract void zozer(Jedlo<?> jedlo);
+/**
+ * @param <T> typ zvierata
+ */
+public abstract class Zviera<T> {
+    public abstract void zozer(Jedlo<T> jedlo);
 }

@@ -1,4 +1,4 @@
-public class Macka extends Zviera implements Nazvany {
+public class Macka extends Zviera<Macka> implements Nazvany {
     private final String meno;
 
     public Macka(String meno) {
@@ -11,11 +11,7 @@ public class Macka extends Zviera implements Nazvany {
     }
 
     @Override
-    public void zozer(Jedlo<?> jedlo) {
-        if (!(jedlo instanceof Mlieko)) {
-            throw new ToNelubimException();
-        }
-
+    public void zozer(Jedlo<Macka> jedlo) {
         System.out.println("Macka si spokojne pradie po dobrom obede");
     }
 }
