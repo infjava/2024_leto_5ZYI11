@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Main {
     public static void main(String[] args) {
         // klietka na levy
@@ -26,5 +29,22 @@ public class Main {
 //        var divnaKlietka = new Klietka<Integer>();
 //        divnaKlietka.vlozZviera(5);
 //        divnaKlietka.vypis();
+
+//        for (var macka : klietkaNaMacku) {
+//            System.out.format("Macka %s%n", macka.getMeno());
+//        }
+
+        var cisla = new ArrayList<Integer>();
+
+//        for (Integer i : cisla) {
+//            System.out.println(i);
+//        }
+
+        var iterator = cisla.iterator();
+        while (iterator.hasNext()) {
+            var i = iterator.next();
+
+            System.out.println(i);
+        }
     }
 }
