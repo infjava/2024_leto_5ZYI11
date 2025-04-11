@@ -6,6 +6,8 @@ import sk.uniza.fri.wof.prostredie.vybavenie.OvladacVytahu;
 import sk.uniza.fri.wof.prostredie.vychody.VstupDoLabaku;
 import sk.uniza.fri.wof.prostredie.vychody.VychodZVytahu;
 
+import java.util.Scanner;
+
 public class HernySvet {
     private final Miestnost startovaciaMiestnost;
 
@@ -21,7 +23,15 @@ public class HernySvet {
      * Vytvori mapu definovanú pomocou zdrojového kódu
      */
     private Miestnost vytvorMapu() {
-        final Miestnost startovaciaMiestnost;
+        try (var mapa = new Scanner(ClassLoader.getSystemResourceAsStream("mapa.txt"))) {
+            while (mapa.hasNextLine()) {
+                System.out.println(mapa.nextLine());
+            }
+
+            return new Miestnost("nic");
+        }
+
+        /*final Miestnost startovaciaMiestnost;
         Miestnost terasa = new Miestnost("terasa - hlavny vstup na fakultu");
         Miestnost aula = new Miestnost("aula");
         Miestnost bufet = new Miestnost("bufet");
@@ -62,7 +72,7 @@ public class HernySvet {
         bufet.pridajVybavenie(new Automat());
 
         vytah.pridajVybavenie(new OvladacVytahu());
-        return terasa;
+        return terasa;*/
     }
 
     public Miestnost getStartovaciaMiestnost() {
