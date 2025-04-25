@@ -10,8 +10,13 @@ public class Main {
         okno.setLayout(new BorderLayout());
 
         okno.add(new JLabel("Chceš úspešne dokončiť Informatiku 2?"), BorderLayout.NORTH);
-        okno.add(new JButton("Áno"), BorderLayout.WEST);
-        okno.add(new JButton("Nie"), BorderLayout.EAST);
+
+        var tlacidla = new JPanel(new GridLayout(1, 2));
+
+        tlacidla.add(new JButton("Áno"));
+        tlacidla.add(new JButton("Nie"));
+
+        okno.add(tlacidla, BorderLayout.CENTER);
 
         okno.pack();
 
