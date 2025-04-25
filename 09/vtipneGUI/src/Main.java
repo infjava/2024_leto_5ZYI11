@@ -13,8 +13,14 @@ public class Main {
 
         var tlacidla = new JPanel(new GridLayout(1, 2));
 
-        tlacidla.add(new JButton("Áno"));
-        tlacidla.add(new JButton("Nie"));
+        var lave = new JButton("Áno");
+        var prave = new JButton("Nie");
+
+        prave.addMouseListener(new VymienacTlacidiel(lave, prave));
+        lave.addMouseListener(new VymienacTlacidiel(prave, lave));
+
+        tlacidla.add(lave);
+        tlacidla.add(prave);
 
         okno.add(tlacidla, BorderLayout.CENTER);
 
