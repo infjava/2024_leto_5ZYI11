@@ -23,11 +23,8 @@ public class Main {
         prave.addMouseListener(new VymienacTlacidiel(lave, prave));
         lave.addMouseListener(new VymienacTlacidiel(prave, lave));
 
-        lave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
-            }
+        lave.addActionListener(e -> {
+            JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
         });
 
         tlacidla.add(lave);
