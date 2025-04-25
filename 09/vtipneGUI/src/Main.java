@@ -26,7 +26,7 @@ public class Main {
         lave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Tak sa snaž!");
+                JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
             }
         });
 
