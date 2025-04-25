@@ -12,7 +12,7 @@ public class Main {
         okno.add(new JButton("Áno"));
         okno.add(new JButton("Nie"));
 
-        okno.setMinimumSize(new Dimension(600, 100));
+        okno.pack();
 
         okno.setVisible(true);
     }
