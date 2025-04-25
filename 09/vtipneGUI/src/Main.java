@@ -23,15 +23,8 @@ public class Main {
         prave.addMouseListener(new VymienacTlacidiel(lave, prave));
         lave.addMouseListener(new VymienacTlacidiel(prave, lave));
 
-        lave.addActionListener(e -> {
-            JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
-            System.exit(0);
-        });
-
-        prave.addActionListener(e -> {
-            JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
-            System.exit(0);
-        });
+        lave.addActionListener(e -> klikNaAno(okno));
+        prave.addActionListener(e -> klikNaAno(okno));
 
         tlacidla.add(lave);
         tlacidla.add(prave);
@@ -41,5 +34,10 @@ public class Main {
         okno.pack();
 
         okno.setVisible(true);
+    }
+
+    private static void klikNaAno(JFrame okno) {
+        JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
+        System.exit(0);
     }
 }
