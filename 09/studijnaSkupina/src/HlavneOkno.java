@@ -1,4 +1,8 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class HlavneOkno {
     private final JFrame okno;
@@ -23,6 +27,73 @@ public class HlavneOkno {
         this.okno.pack();
 
         this.pridaj.addActionListener(e -> this.pridajStudenta());
+
+        this.meno.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+        });
+
+        this.priezvisko.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+        });
+
+        this.rokNarodenia.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujTlacitka();
+            }
+        });
+
+        this.zoznam.addListSelectionListener(e -> this.aktualizujTlacitka());
+    }
+
+    private void aktualizujTlacitka() {
+        var jeMeno = !this.meno.getText().isBlank();
+        var jePriezvisko = !this.priezvisko.getText().isBlank();
+
+        var jeRokNarodenia = true;
+        try {
+            var x = Integer.parseInt(this.rokNarodenia.getText());
+        } catch (NumberFormatException e) {
+            jeRokNarodenia = false;
+        }
+
+        this.pridaj.setEnabled(jeMeno && jePriezvisko && jeRokNarodenia);
     }
 
     private void pridajStudenta() {
