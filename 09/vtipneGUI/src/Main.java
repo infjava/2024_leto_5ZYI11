@@ -7,12 +7,11 @@ public class Main {
 
         okno.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        okno.setLayout(new GridLayout(2, 2));
+        okno.setLayout(new BorderLayout());
 
-        okno.add(new JLabel("Chceš úspešne dokončiť Informatiku 2?"));
-        okno.add(new JLabel());
-        okno.add(new JButton("Áno"));
-        okno.add(new JButton("Nie"));
+        okno.add(new JLabel("Chceš úspešne dokončiť Informatiku 2?"), BorderLayout.NORTH);
+        okno.add(new JButton("Áno"), BorderLayout.WEST);
+        okno.add(new JButton("Nie"), BorderLayout.EAST);
 
         okno.pack();
 
