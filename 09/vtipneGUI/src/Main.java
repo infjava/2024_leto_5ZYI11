@@ -1,7 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
+    private static class ZobrazDialog implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Tak sa snaž!");
+        }
+    }
+
     public static void main(String[] args) {
         var okno = new JFrame("Otázka");
 
