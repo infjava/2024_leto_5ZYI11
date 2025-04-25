@@ -25,6 +25,12 @@ public class Main {
 
         lave.addActionListener(e -> {
             JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
+            System.exit(0);
+        });
+
+        prave.addActionListener(e -> {
+            JOptionPane.showMessageDialog(okno, "Tak sa snaž!");
+            System.exit(0);
         });
 
         tlacidla.add(lave);
