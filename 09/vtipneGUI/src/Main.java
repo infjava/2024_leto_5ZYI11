@@ -16,6 +16,8 @@ public class Main {
         var lave = new JButton("Áno");
         var prave = new JButton("Nie");
 
+        prave.setFocusable(false);
+
         prave.addMouseListener(new VymienacTlacidiel(lave, prave));
         lave.addMouseListener(new VymienacTlacidiel(prave, lave));
 

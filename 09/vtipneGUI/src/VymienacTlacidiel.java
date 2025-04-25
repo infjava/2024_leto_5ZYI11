@@ -14,6 +14,10 @@ public class VymienacTlacidiel extends MouseAdapter {
     @Override
     public void mouseEntered(MouseEvent e) {
         this.noveNie.setText("Nie");
+        this.noveNie.setFocusable(false);
+
         this.noveAno.setText("Áno");
+        this.noveAno.setFocusable(true);
+        this.noveAno.grabFocus();
     }
 }
