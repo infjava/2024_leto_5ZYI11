@@ -21,6 +21,8 @@ public class Main {
         prave.addMouseListener(new VymienacTlacidiel(lave, prave));
         lave.addMouseListener(new VymienacTlacidiel(prave, lave));
 
+        lave.addActionListener(new ZobrazDialog());
+
         tlacidla.add(lave);
         tlacidla.add(prave);
 
