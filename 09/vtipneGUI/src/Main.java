@@ -4,14 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
-    private static class ZobrazDialog implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(null, "Tak sa snaž!");
-        }
-    }
-
     public static void main(String[] args) {
         var okno = new JFrame("Otázka");
 
@@ -31,7 +23,12 @@ public class Main {
         prave.addMouseListener(new VymienacTlacidiel(lave, prave));
         lave.addMouseListener(new VymienacTlacidiel(prave, lave));
 
-        lave.addActionListener(new ZobrazDialog());
+        lave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Tak sa snaž!");
+            }
+        });
 
         tlacidla.add(lave);
         tlacidla.add(prave);
