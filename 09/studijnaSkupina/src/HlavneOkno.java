@@ -5,7 +5,7 @@ import java.io.*;
 
 public class HlavneOkno {
     private final JFrame okno;
-    private final DefaultListModel<Student> studenti;
+    private DefaultListModel<Student> studenti;
 
     private JTextField meno;
     private JTextField priezvisko;
@@ -83,6 +83,7 @@ public class HlavneOkno {
         this.zoznam.addListSelectionListener(e -> this.aktualizujTlacitka());
 
         this.uloz.addActionListener(e -> this.ulozStudentovDoSuboru());
+        this.nacitaj.addActionListener(e -> this.nacitajStudentovZoSuboru());
     }
 
     private void ulozStudentovDoSuboru() {
@@ -95,6 +96,21 @@ public class HlavneOkno {
                 zapisovac.writeObject(this.studenti);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri ukladani. Chyba: " + e.getMessage());
+            }
+        }
+    }
+
+    private void nacitajStudentovZoSuboru() {
+        var vyberSuboru = new JFileChooser();
+
+        var vyber = vyberSuboru.showOpenDialog(this.okno);
+
+        if (vyber == JFileChooser.APPROVE_OPTION) {
+            try (var citac = new ObjectInputStream(new FileInputStream(vyberSuboru.getSelectedFile()))) {
+                this.studenti = (DefaultListModel<Student>) citac.readObject();
+                this.zoznam.setModel(this.studenti);
+            } catch (IOException | ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri nacitavani. Chyba: " + e.getMessage());
             }
         }
     }
