@@ -1,8 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 public class HlavneOkno {
     private final JFrame okno;
@@ -16,6 +14,8 @@ public class HlavneOkno {
     private JButton uprav;
     private JList<Student> zoznam;
     private JPanel hlavnyPanel;
+    private JButton uloz;
+    private JButton nacitaj;
 
     public HlavneOkno() {
         this.studenti = new DefaultListModel<Student>();
