@@ -5,7 +5,7 @@ import java.io.*;
 
 public class HlavneOkno {
     private static final int SUBOR_MAGIC_NUMBER = 1534343123;
-    private static final int SUBOR_VERZIA = 1;
+    private static final int SUBOR_VERZIA = 2;
 
     private final JFrame okno;
     private DefaultListModel<Student> studenti;
@@ -133,7 +133,7 @@ public class HlavneOkno {
 
                 var velkost = citac.readInt();
                 for (var i = 0; i < velkost; i++) {
-                    var student = Student.nacitajZoSuboru(citac);
+                    var student = Student.nacitajZoSuboru(citac, verzia);
                     this.studenti.addElement(student);
                 }
 
