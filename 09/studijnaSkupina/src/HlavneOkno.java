@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.io.*;
 
 public class HlavneOkno {
     private final JFrame okno;
@@ -80,6 +81,22 @@ public class HlavneOkno {
         });
 
         this.zoznam.addListSelectionListener(e -> this.aktualizujTlacitka());
+
+        this.uloz.addActionListener(e -> this.ulozStudentovDoSuboru());
+    }
+
+    private void ulozStudentovDoSuboru() {
+        var vyberSuboru = new JFileChooser();
+
+        var vyber = vyberSuboru.showSaveDialog(this.okno);
+
+        if (vyber == JFileChooser.APPROVE_OPTION) {
+            try (var zapisovac = new ObjectOutputStream(new FileOutputStream(vyberSuboru.getSelectedFile()))) {
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri ukladani");
+            }
+        }
     }
 
     private void aktualizujTlacitka() {
