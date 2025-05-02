@@ -1,11 +1,8 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
 
-public class Student implements Serializable {
-    private static final long serialVersionUID = 3232181867018359766L;
-
+public class Student {
     private final String meno;
     private final String priezvisko;
     private final int rokNarodenia;
