@@ -92,9 +92,9 @@ public class HlavneOkno {
 
         if (vyber == JFileChooser.APPROVE_OPTION) {
             try (var zapisovac = new ObjectOutputStream(new FileOutputStream(vyberSuboru.getSelectedFile()))) {
-
+                zapisovac.writeObject(this.studenti);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri ukladani");
+                JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri ukladani. Chyba: " + e.getMessage());
             }
         }
     }
