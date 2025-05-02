@@ -115,10 +115,29 @@ public class HlavneOkno {
         var vyber = vyberSuboru.showOpenDialog(this.okno);
 
         if (vyber == JFileChooser.APPROVE_OPTION) {
-            try (var citac = new ObjectInputStream(new FileInputStream(vyberSuboru.getSelectedFile()))) {
-                this.studenti = (DefaultListModel<Student>) citac.readObject();
-                this.zoznam.setModel(this.studenti);
-            } catch (IOException | ClassNotFoundException e) {
+            try (var citac = new DataInputStream(new FileInputStream(vyberSuboru.getSelectedFile()))) {
+                var magicNumber = citac.readInt();
+                var verzia = citac.readInt();
+
+                if (magicNumber != SUBOR_MAGIC_NUMBER) {
+                    JOptionPane.showMessageDialog(this.okno, "Chybny format suboru, asi si vybral nespravny!");
+                    return;
+                }
+
+                if (verzia > SUBOR_VERZIA) {
+                    JOptionPane.showMessageDialog(this.okno, "Subor bol vytvoreny starou verziou programu. Zacni sporit na novy!");
+                    return;
+                }
+
+                this.studenti.clear();
+
+                var velkost = citac.readInt();
+                for (var i = 0; i < velkost; i++) {
+                    var student = Student.nacitajZoSuboru(citac);
+                    this.studenti.addElement(student);
+                }
+
+            } catch (IOException e) {
                 JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri nacitavani. Chyba: " + e.getMessage());
             }
         }

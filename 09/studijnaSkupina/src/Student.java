@@ -1,3 +1,4 @@
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
@@ -40,5 +41,13 @@ public class Student implements Serializable {
         zapisovac.writeUTF(this.meno);
         zapisovac.writeUTF(this.priezvisko);
         zapisovac.writeInt(this.rokNarodenia);
+    }
+
+    public static Student nacitajZoSuboru(DataInputStream citac) throws IOException {
+        var meno = citac.readUTF();
+        var priezvisko = citac.readUTF();
+        var rokNarodenia = citac.readInt();
+
+        return new Student(meno, priezvisko, rokNarodenia);
     }
 }
