@@ -1,3 +1,5 @@
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Student implements Serializable {
@@ -32,5 +34,11 @@ public class Student implements Serializable {
                 ", priezvisko='" + this.priezvisko + '\'' +
                 ", rokNarodenia=" + this.rokNarodenia +
                 '}';
+    }
+
+    public void ulozDoSuboru(DataOutputStream zapisovac) throws IOException {
+        zapisovac.writeUTF(this.meno);
+        zapisovac.writeUTF(this.priezvisko);
+        zapisovac.writeInt(this.rokNarodenia);
     }
 }

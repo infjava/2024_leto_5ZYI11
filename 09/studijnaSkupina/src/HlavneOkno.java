@@ -4,6 +4,9 @@ import javax.swing.event.DocumentListener;
 import java.io.*;
 
 public class HlavneOkno {
+    private static final int SUBOR_MAGIC_NUMBER = 1534343123;
+    private static final int SUBOR_VERZIA = 1;
+
     private final JFrame okno;
     private DefaultListModel<Student> studenti;
 
@@ -92,8 +95,14 @@ public class HlavneOkno {
         var vyber = vyberSuboru.showSaveDialog(this.okno);
 
         if (vyber == JFileChooser.APPROVE_OPTION) {
-            try (var zapisovac = new ObjectOutputStream(new FileOutputStream(vyberSuboru.getSelectedFile()))) {
-                zapisovac.writeObject(this.studenti);
+            try (var zapisovac = new DataOutputStream(new FileOutputStream(vyberSuboru.getSelectedFile()))) {
+                zapisovac.writeInt(SUBOR_MAGIC_NUMBER);
+                zapisovac.writeInt(SUBOR_VERZIA);
+                zapisovac.writeInt(this.studenti.getSize());
+                for (int i = 0; i < this.studenti.getSize(); i++) {
+                    var student = this.studenti.get(i);
+                    student.ulozDoSuboru(zapisovac);
+                }
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this.okno, "Nastala chyba pri ukladani. Chyba: " + e.getMessage());
             }
